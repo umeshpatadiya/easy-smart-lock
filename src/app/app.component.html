@@ -1,0 +1,43 @@
+<ion-app>
+  <ion-menu  side="start" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+          <img class="logo" src="/assets/images/logo.png" /> <br/>
+          Bonjour {{ prenom }}
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item (click)="close()" [routerLink]="['/dashboard']">
+          <ion-icon name="home" slot="start"></ion-icon>
+          Accueil
+        </ion-item>
+        <ion-item (click)="close()" [routerLink]="['/dashboard/profil']">
+          <ion-icon name="person-outline" slot="start"></ion-icon>
+          Mon compte
+        </ion-item>
+        <!--
+        <ion-item>
+          <ion-icon name="rocket-outline" slot="start"></ion-icon>
+          Automatiser
+        </ion-item>
+        -->
+        <ion-item target="_blank" href="https://bit.ly/ASSISTANTVIRTUELEASYSMARTLOCK">
+          <ion-icon name="help-outline" slot="start"></ion-icon>
+          Tuto
+        </ion-item>
+        <ion-item  href="mailto:contact@test.fr">
+          <ion-icon name="mail-outline" slot="start"></ion-icon>
+          Contact
+        </ion-item>
+        <ion-item (click)="logout()">
+          <ion-icon name="log-out-outline" slot="start"></ion-icon>
+          Déconnexion
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>
