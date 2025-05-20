@@ -22,6 +22,7 @@ export class AddPhonePage implements OnInit {
   prefix: string;
   telephone: string;
   min: string;
+  max: string;
   position: string;
   ordres: any[];
   nom: string;
@@ -34,6 +35,7 @@ export class AddPhonePage implements OnInit {
 
   ngOnInit() {
     this.min = moment().format('YYYY-MM-DD');
+    this.max = moment().add(25, 'year').format('YYYY-MM-DD');
   }
 
   ionViewDidEnter() {

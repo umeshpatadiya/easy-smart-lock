@@ -46,7 +46,7 @@
         <ion-datetime-button datetime="debutdatetime"></ion-datetime-button>
         <ion-modal [keepContentsMounted]="true">
           <ng-template>
-            <ion-datetime name="debut" [(ngModel)]="debut" presentation="date-time" [min]="min"
+            <ion-datetime name="debut" [(ngModel)]="debut" presentation="date-time" [min]="min" [max]="max"
               display-format="DD/MM/YYYY HH:mm" placeholder="Choisir Date et heure" id="debutdatetime">
             </ion-datetime>
           </ng-template>
@@ -57,7 +57,7 @@
         <ion-datetime-button datetime="findatetime"></ion-datetime-button>
         <ion-popover [keepContentsMounted]="true">
           <ng-template>
-            <ion-datetime name="fin" [(ngModel)]="fin" presentation="date-time" [min]="min"
+            <ion-datetime name="fin" [(ngModel)]="fin" presentation="date-time" [min]="min" [max]="max"
               display-format="DD/MM/YYYY HH:mm" placeholder="Choisir Date et heure" id="findatetime">
             </ion-datetime>
           </ng-template>
