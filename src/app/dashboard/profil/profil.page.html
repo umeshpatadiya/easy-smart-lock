@@ -18,28 +18,19 @@
     </h4>
     <form #ap="ngForm">
       <ion-item>
-        <ion-label position="stacked">
-          Nom
-        </ion-label>
-        <ion-input [(ngModel)]="data.nom" name="nom" required></ion-input>
-      </ion-item> 
+        <ion-input label="Nom" labelPlacement="stacked" [(ngModel)]="data.nom" name="nom" required></ion-input>
+      </ion-item>
       <ion-item>
-        <ion-label position="stacked">
-          Prénom
-        </ion-label>
-        <ion-input [(ngModel)]="data.prenom" name="prenom" required></ion-input>
-      </ion-item> 
+        <ion-input label="Prénom" labelPlacement="stacked" [(ngModel)]="data.prenom" name="prenom" required></ion-input>
+      </ion-item>
       <ion-item>
-        <ion-label position="stacked">
-          Email
-        </ion-label>
-        <ion-input [(ngModel)]="data.email" name="email" required></ion-input>
+        <ion-input label="Email" labelPlacement="stacked" [(ngModel)]="data.email" name="email" required></ion-input>
       </ion-item>
       <div class="mt-5">
         <ion-button [disabled]="ap.invalid" (click)="do()" expand="block" color="primary">
           Modifier
         </ion-button>
-      </div>   
+      </div>
     </form>
   </div>
 </ion-content>

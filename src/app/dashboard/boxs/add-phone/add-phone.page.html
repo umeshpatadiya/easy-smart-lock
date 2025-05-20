@@ -18,36 +18,50 @@
     </h3>
     <form #addPhone="ngForm" class="mt-4">
       <ion-item>
-        <ion-label position="floating">Nom de votre client</ion-label>
-        <ion-input required [(ngModel)]="nom" name="nom"></ion-input>
+        <ion-input label="Nom de votre client" labelPlacement="floating" required [(ngModel)]="nom"
+          name="nom"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Illimité</ion-label>
         <ion-toggle name="unlimited" [(ngModel)]="unlimited"></ion-toggle>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Choisir une position</ion-label>
-        <ion-select interface="popover" name="position" [(ngModel)]="position" required>
+        <ion-select label="Choisir une position" labelPlacement="floating" interface="popover" name="position"
+          [(ngModel)]="position" required>
           <ion-select-option *ngFor="let o of ordres" [value]="o">
             {{ o }}
           </ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Préfix pays (commencant par +)</ion-label>
-        <ion-input required [(ngModel)]="prefix" name="prefix"></ion-input>
+        <ion-input label="Préfix pays (commencant par +)" labelPlacement="floating" required [(ngModel)]="prefix"
+          name="prefix"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Numéros de téléphone (sans le 0 et sans espace)</ion-label>
-        <ion-input required [(ngModel)]="telephone" name="telephone"></ion-input>
+        <ion-input label="Numéros de téléphone (sans le 0 et sans espace)" labelPlacement="floating" required
+          [(ngModel)]="telephone" name="telephone"></ion-input>
       </ion-item>
       <ion-item *ngIf="unlimited == false">
         <ion-label>Début</ion-label>
-        <ion-datetime [min]="min" name="debut" [(ngModel)]="debut" display-format="DD/MM/YYYY HH:mm" placeholder="Choisir Date et heure"></ion-datetime>
+        <ion-datetime-button datetime="debutdatetime"></ion-datetime-button>
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime name="debut" [(ngModel)]="debut" presentation="date-time" [min]="min"
+              display-format="DD/MM/YYYY HH:mm" placeholder="Choisir Date et heure" id="debutdatetime">
+            </ion-datetime>
+          </ng-template>
+        </ion-modal>
       </ion-item>
       <ion-item *ngIf="unlimited == false">
         <ion-label>Fin</ion-label>
-        <ion-datetime [min]="min" name="fin" [(ngModel)]="fin" display-format="DD/MM/YYYY HH:mm" placeholder="Choisir Date et heure"></ion-datetime>
+        <ion-datetime-button datetime="findatetime"></ion-datetime-button>
+        <ion-popover [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime name="fin" [(ngModel)]="fin" presentation="date-time" [min]="min"
+              display-format="DD/MM/YYYY HH:mm" placeholder="Choisir Date et heure" id="findatetime">
+            </ion-datetime>
+          </ng-template>
+        </ion-popover>
       </ion-item>
       <div class="mt-4" *ngIf="ordres && ordres.length > 0">
         <ion-button [disabled]="addPhone.invalid" (click)="valide()" expand="block">

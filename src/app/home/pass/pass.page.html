@@ -18,16 +18,14 @@
     </h4>
     <form>
       <ion-item>
-        <ion-label position="stacked">
-          Votre Email
-        </ion-label>
-        <ion-input [(ngModel)]="email" name="email" type="email"></ion-input>
-      </ion-item> 
+        <ion-input label="Votre Email" labelPlacement="stacked" [(ngModel)]="email" name="email"
+          type="email"></ion-input>
+      </ion-item>
       <div class="mt-5">
         <ion-button (click)="do()" expand="block" color="primary">
           Valider
         </ion-button>
-      </div>   
+      </div>
     </form>
     <p class="mt-3 text-center">
       &nbsp;
@@ -40,7 +38,7 @@
       ou <a [routerLink]="['/home/connexion']">Connexion</a>
     </p>
     <p class="mt-5">
-      <app-version></app-version> 
+      <app-version></app-version>
     </p>
   </div>
 </ion-content>

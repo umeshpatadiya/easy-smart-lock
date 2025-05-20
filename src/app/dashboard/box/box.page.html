@@ -17,9 +17,8 @@
       Box #{{ box.id }} - {{ box.nom }}
     </h3>
     <div class="mt-4">
-      <ion-label>Choisir une action</ion-label>
       <ion-item>
-        <ion-select interface="popover" [(ngModel)]="action">
+        <ion-select label="Choisir une action" labelPlacement="floating" interface="popover" [(ngModel)]="action">
           <ion-select-option [value]="actions.actionAjoutTel">
             Ajouter un numéro de téléphone
           </ion-select-option>
@@ -44,7 +43,7 @@
       </ion-item>
     </div>
     <div class="mt-2">
-      <ion-button (click)="valide()" expand="block"> 
+      <ion-button (click)="valide()" expand="block">
         Valider
       </ion-button>
     </div>

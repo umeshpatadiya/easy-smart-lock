@@ -17,8 +17,8 @@ export class AddPhonePage implements OnInit {
   loading = false;
   id: any;
   unlimited = true;
-  debut: any = new Date();
-  fin: any = new Date();
+  debut: string = new Date().toISOString();
+  fin: string = new Date().toISOString();
   prefix: string;
   telephone: string;
   min: string;
@@ -37,10 +37,10 @@ export class AddPhonePage implements OnInit {
   }
 
   ionViewDidEnter() {
-    this.ordres = [] ;
-    this.position = '' ;
+    this.ordres = [];
+    this.position = '';
     this.loading = true;
-    this.box = null ;
+    this.box = null;
     this.id = this.route.snapshot.paramMap.get('id');
     this.service.find(this.id).then((output: Response) => {
       this.loading = false;
@@ -50,8 +50,7 @@ export class AddPhonePage implements OnInit {
           this.box = data;
         }
       }
-    })
-    .catch((e) => {
+    }).catch((e) => {
 
     });
     this.service.getOrdre(this.id).then((output: Response) => {
@@ -96,8 +95,7 @@ export class AddPhonePage implements OnInit {
           this.alert.presentAlert('Erreur', '', 'Ajout annulé , une erreur est survenue');
         }
       }
-    })
-    .catch((e) => {
+    }).catch((e) => {
       console.log(e);
       this.loading = false;
       this.alert.presentAlert('Erreur', '', 'Ajout annulé , une erreur est survenue');
